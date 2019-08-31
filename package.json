@@ -1,0 +1,24 @@
+{
+  "name": "tweet-rewind",
+  "version": "1.0.0",
+  "description": "An app to generate twitter 'memories' that resemble snapchat memories.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thealexlittle/tweet-rewind.git"
+  },
+  "author": "Alex Little",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thealexlittle/tweet-rewind/issues"
+  },
+  "homepage": "https://github.com/thealexlittle/tweet-rewind#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "request": "^2.88.0"
+  }
+}
