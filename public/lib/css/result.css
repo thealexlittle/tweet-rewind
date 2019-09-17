@@ -1,0 +1,86 @@
+
+h3{
+    color: var(--twitter-dark);
+}
+h3:after
+{
+    content:' ';
+    display:block;
+    border:1px solid var(--twitter-dark);
+}
+
+#jumbotron-buttons{
+    display: none;
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+}
+
+#jumbotron-buttons small {
+    padding-right: .25em;
+    margin: auto;
+    font-size: 30px;
+}
+
+#jumbotron-buttons .btn{
+    float: right;
+    text-align: center;
+}
+
+#result{
+    margin: auto;
+    padding: 1em;
+}
+
+h2:after
+{
+    content:' ';
+    display:block;
+    border:1px solid black;
+}
+
+.tweet-container{
+    margin:  0 0;
+    max-width: 200em;
+}
+
+#nav-button {
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: blue; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+}
+
+.btn-secondary{
+    background-color: var(--twitter-dark);
+}
+
+.alert{
+    text-align: center;
+}
+
+.dropdown-menu{
+    min-width: 1em;
+}
+
+
+@media only screen and (min-width: 768px){
+.tweet-wrapper{
+    display : flex;
+    justify-content: space-around;
+    flex-wrap : wrap;
+    margin: 0 8em;
+   
+ }
+#jumbotron-buttons .btn{
+    float: right;
+    margin-right: 3em;
+}
+}

@@ -1,0 +1,104 @@
+:root{
+    --twitter-blue : #1DA1F2;
+    --twitter-dark : #243447;
+}
+
+body {
+    margin: auto;
+  
+}
+
+nav{
+    max-width: auto;
+}
+
+.btn,
+.badge{
+    background-color: var(--twitter-blue);
+    border-color: var(--twitter-blue);
+}
+
+.jumbotron {
+    padding: 1.5rem 2rem;
+    background-color: var(--twitter-dark);
+    color: white;
+}
+.jumbotron h1{
+    font-size: 2em;
+}
+
+.jumbotron .lead{
+    font-size: 1em;
+}
+
+.badge {
+    padding: .5em .4em;
+}
+
+.steps{
+    margin-top: .5em;
+    text-align: center;
+}
+
+.input-group{
+    padding: 0 .5em;
+}
+
+#datepicker{
+   margin:  1em .5em;
+}
+
+.date-input {
+    margin-bottom: .25em!important;
+}
+
+.date-input .input-group-prepend span{
+    width: 4.5em;
+}
+
+#actions {
+    display: flex;
+    flex-direction: column;
+    margin: 0 .75em; 
+}
+
+#actions button{
+    margin: 0 .5em;
+    margin-bottom: .25em;
+    flex-grow: 2;   
+}
+
+#actions h6{
+    font-size: 1.5em;
+   margin: .5em auto;
+}
+
+#actions p{
+    margin: 0 auto;
+}
+
+#rewind{
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+#about{
+    margin: 2em;
+}
+
+form{
+    margin: .5em;
+    max-width: 1000px;
+    margin: auto;
+}
+
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: var(--twitter-dark);
+    color: white;
+    margin-top: 3em;
+ }
