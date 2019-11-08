@@ -9,6 +9,11 @@ const SEARCH_START_YEAR = 2006;
 const DATE = new Date();
 const SEARCH_END_YEAR = DATE.getFullYear();
 
+/* @func parseDate - takes in a date in expanded form (month/dd) and 
+ * returns it in a numerical form (mm/dd).
+ * @param date - the date as a string (mm/dd).
+ 8 @ return - the date as a string (month/dd)
+ */
 function parseDate(date) {
   let month = date.split('-')[0];
   let day = date.split('-')[1];
@@ -101,6 +106,10 @@ function parseDate(date) {
   return `${mm} ${dd}`;
 }
 
+/* @func getNextDay - gets the day after the only listed
+ * @param date - a date object
+ * @return - a string representation of the date
+ */
 function getNextDay(date) {
   // Just used an arbitrary year to handle dates for me 
   let day = new Date(`2000-${date}`);
@@ -109,9 +118,20 @@ function getNextDay(date) {
   return nextDay.toISOString().substring(5, 10);
 }
 
-// Later only authenticated users will be passed in 
+/* @func getTweets - takes in a user and a date to search and returns a
+ * javascript object contains arrays of tweet ids from 2006 to the current year.
+ * @param user - a string that represents a particular user whose tweets to search
+ * @param date - a date string that gives the date to search
+ * @return - a javascript object ex. 
+ {
+ 'username' : username,
+ 'tweets' : {
+            '2007' : [0001, 0002]
+            }
+ }
+ */
 async function getTweets(user, date) {
-
+  //Set dates 
   const searchDateBegin = date;
   const searchDateEnd = getNextDay(searchDateBegin);
   let searchYears = [];
@@ -122,24 +142,27 @@ async function getTweets(user, date) {
     tweets   : {}
   };
 
-  let currSearchQuery;
-
+  let currSearchQuery = "";
+  //Set years to search for 
   for (i = 0; i <= SEARCH_END_YEAR-SEARCH_START_YEAR; i++) {
     year = i + SEARCH_START_YEAR;
     searchYears[i] = year;
   }
-
+  
+  //Map results from the array to that javascript object
   searchYears.forEach( async (year, index) => {
+ 
     if (searchDateBegin == '12-31') {
       currSearchQuery = `${year}-${searchDateBegin}%20until%3A${year + 1}-${searchDateEnd}&src=typd`
     } else {
       currSearchQuery = `${year}-${searchDateBegin}%20until%3A${year}-${searchDateEnd}&src=typd`
     }
     const requestURL = `${TWITTER_BASE_URL}${TWITTER_SEARCH_URL}from%3A${user}%20since%3A${currSearchQuery}`;
+    
+    //Find tweet ids for a given date
     promises[index] = request(requestURL, (error, response, html) => {
       if (!error && response.statusCode == 200) {
         tweetScrape.tweets[year] = scrapePage(html);
-        console.log(tweetScrape.tweets[year]);
         if (tweetScrape.tweets[year].length == 0){
           delete tweetScrape.tweets[year];
         }
@@ -168,6 +191,8 @@ function scrapePage(html) {
   return tweetIds;
 }
 
+
+// 
 module.exports = {
   getTweets
 }
