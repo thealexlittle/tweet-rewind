@@ -22,6 +22,7 @@ const exphbsconfig = {
 app.engine('handlebars', exphbs(exphbsconfig));
 app.set('view engine', 'handlebars');
 
+//Handles a request to the server for tweets from a user
 router.get('/rewind', function (req, res) {
   const user = req.param('username');
   const month = req.param('month');
@@ -30,6 +31,7 @@ router.get('/rewind', function (req, res) {
  
 })
 
+//Renders the tweets that were scraped on a resulting webpage
 router.get(`/rewind%20:user%20ondate%20:date`, function (req, res) {
   scrape.getTweets(req.params.user, req.params.date)
     .then(scrape => {
@@ -37,6 +39,7 @@ router.get(`/rewind%20:user%20ondate%20:date`, function (req, res) {
     })
 })
 
+//Handles shared links
 router.get('/share/:user/:date', function(req, res){
   const user = req.params.user;
   const date = req.params.date;
