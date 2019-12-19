@@ -9,4 +9,4 @@ This is a web site built fully in JavaScript.
 * Express
 * Cheerio node module for web scraping
 * Handlebars.js for templating
-* Bootstrap on the Frony End
+* Bootstrap on the Front End
